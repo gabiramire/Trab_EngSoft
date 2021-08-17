@@ -1,0 +1,13 @@
+# TODO:
+
+# Colocar as pesquisas por ordem da média de avaliação
+# Ao alterar os dados de um admin que é o usuario atual, volta ao menu, precisa arrumar isso
+
+# Testar receita sem palavra chave
+# Nao avaliar duas vezes, colocar lista de usuarios que avaliou/denunciou uma receita
+
+### projeto de arq logica tem que arrumar as classes ( que estao como defs)
+
+# DONE:
+# Alterar dados da conta usuario e adm
+# /denunciar receita
