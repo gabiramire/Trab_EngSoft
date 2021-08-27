@@ -1,10 +1,31 @@
 from user import User
 from user import Admin
 from receita import Receita
+# pip install db-sqlite3
+# import sqlite3
+#
+#
+# class BD():
+#     def __init__(self):
+#         self.bancoSql = sqlite3.connect("BancoSistemaReceitas.db")
+#         self.cursor = self.bancoSql.cursor()  # para usar comando sql para criar tabelas
+#
+#
+# banco = BD()
+# # banco.cursor.execute("CREATE TABLE jaca (nome text, idade integer)")   # apenas para criar
+# # banco.cursor.execute("INSERT INTO jaca VALUES('a', 3)") # para inserir
+# # banco.bancoSql.commit() #para salvar
+#
+# banco.cursor.execute("SELECT * FROM jaca")  # pegue todos
+# lista = banco.cursor.fetchall()     # [('a', 3)]
+# print(lista[0][0])
 
 
 class BD:
     def __init__(self, lista_admin, lista_users, lista_denuncia):
+        self.bancoSql = sqlite3.connect("BancoSistemaReceitas.db")
+        self.cursor = self.bancoSql.cursor()  # para usar comando sql para criar tabelas
+
         self.lista_admin = lista_admin
         self.lista_users = lista_users
         self.lista_denuncia = lista_denuncia
@@ -45,7 +66,8 @@ def initial_admin(data):
 
 def initial_user(data):
     # r1 = Receita('Bolo de Chocolate','Gabi', ['bolo', 'chocolate', 'doce', 'sobremesa'], 'A', 'A', 'A', [{'chocolate': '1 barra'}], 'Um delicioso bolo de chocolate.', 'Leite, ovos,...')
-    r1 = Receita('BOLO', 'a', ['BOLO', 'DOCE'], 'A', 'A', 'A', [{'jaca': '2'}], 'Um delicioso bolo de chocolate.', 'Leite, ovos,...')
+    r1 = Receita('BOLO', 'a', ['BOLO', 'DOCE'], 'A', 'A', 'A', [
+                 {'jaca': '2'}], 'Um delicioso bolo de chocolate.', 'Leite, ovos,...')
     u1 = User('a', 'a', 'a', [r1])
     data.lista_users.append(u1)
     u2 = User('Gabi', 'abc123', 'gabi@email.com', [])
