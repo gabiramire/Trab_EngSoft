@@ -1,9 +1,9 @@
-import sistema as s
+import sistema
 from bd import BD, initial_admin, initial_user
 
-from receita import Receita
-from user import User
-from user import Admin
+# from receita import Receita
+# from user import User
+# from user import Admin
 # from interface import nomequant -> lista_ingredientes
 
 
@@ -19,6 +19,7 @@ def main():
     sair = False
 
     while user_atual != 'exit':
+        s = sistema.Sistema()
         user_atual = s.menu_cadastro(data)
         for i in data.lista_admin:
             if user_atual == i.login:
