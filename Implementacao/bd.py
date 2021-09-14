@@ -45,8 +45,8 @@ def initial_admin(data):
 
 def initial_user(data):
     # r1 = Receita('Bolo de Chocolate','Gabi', ['bolo', 'chocolate', 'doce', 'sobremesa'], 'A', 'A', 'A', [{'chocolate': '1 barra'}], 'Um delicioso bolo de chocolate.', 'Leite, ovos,...')
-    r1 = Receita('BOLO', 'a', ['BOLO', 'DOCE'], 'A', 'A', 'A', [
-                 {'jaca': '2'}], 'Um delicioso bolo de chocolate.', 'Leite, ovos,...')
-    u1 = User('a', 'a', 'a', [r1])
+    # r1 = Receita('BOLO', 'a', ['BOLO', 'DOCE'], 'A', 'A', 'A', [
+    #              {'jaca': '2'}], 'Um delicioso bolo de chocolate.', 'Leite, ovos,...')
+    u1 = User('a', 'a', 'a', [])
     data.lista_users.append(u1)
     u2 = User('Gabi', 'abc123', 'gabi@email.com', [])

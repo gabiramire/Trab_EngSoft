@@ -1,4 +1,4 @@
-from receita import Receita
+from receita import Receita, ReceitaBuilder
 from user import User
 from user import Admin
 import pesquisa
@@ -79,7 +79,8 @@ class Sistema():
 
             if comand == "A":  # Criar Receita
                 # lista = []
-                nome, palavras_chave, doce_salgado, gluten, porcoes, lista_ingredientes, descricao, modo_preparo = self.interface.parametros()  # funcao valores
+                nome = self.interface.input_nome_receita()
+                # nome, palavras_chave, doce_salgado, gluten, porcoes, lista_ingredientes, descricao, modo_preparo = self.interface.parametros()  # funcao valores
                 # print(j.lista_receitas)
                 if len(j.lista_receitas) >= 1:
                     aux = ""
@@ -90,12 +91,34 @@ class Sistema():
                         self.interface.retorno_print(
                             "\n ~~ Nome já existente, cadastre novamente.  ~~ \n")
                     else:
-                        food = Receita(nome, user_atual, palavras_chave, doce_salgado,
-                                       porcoes, gluten, lista_ingredientes, descricao, modo_preparo)
+                        # food = Receita(nome, user_atual, palavras_chave, doce_salgado,
+                        #               porcoes, gluten, lista_ingredientes, descricao, modo_preparo)
+                        food = Receita()
+                        BReceita = ReceitaBuilder(food, self.interface)
+                        BReceita.buildNome(nome)
+                        BReceita.buildNomeUser(user_atual)
+                        BReceita.buildPalavrasChave()
+                        BReceita.buildDoceSalgado()
+                        BReceita.buildPorcoes()
+                        BReceita.buildGluten()
+                        BReceita.buildListaIngredientes()
+                        BReceita.buildDescricao()
+                        BReceita.buildModoPreparo()
                         j.lista_receitas.append(food)
                 else:
-                    food = Receita(nome, user_atual, palavras_chave, doce_salgado,
-                                   porcoes, gluten, lista_ingredientes, descricao, modo_preparo)
+                    # food = Receita(nome, user_atual, palavras_chave, doce_salgado,
+                    #               porcoes, gluten, lista_ingredientes, descricao, modo_preparo)
+                    food = Receita()
+                    BReceita = ReceitaBuilder(food, self.interface)
+                    BReceita.buildNome(nome)
+                    BReceita.buildNomeUser(user_atual)
+                    BReceita.buildPalavrasChave()
+                    BReceita.buildDoceSalgado()
+                    BReceita.buildPorcoes()
+                    BReceita.buildGluten()
+                    BReceita.buildListaIngredientes()
+                    BReceita.buildDescricao()
+                    BReceita.buildModoPreparo()
                     j.lista_receitas.append(food)
 
             elif comand == "B":  # Pesquisa
