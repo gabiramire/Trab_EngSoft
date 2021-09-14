@@ -1,31 +1,10 @@
 from user import User
 from user import Admin
 from receita import Receita
-# pip install db-sqlite3
-# import sqlite3
-#
-#
-# class BD():
-#     def __init__(self):
-#         self.bancoSql = sqlite3.connect("BancoSistemaReceitas.db")
-#         self.cursor = self.bancoSql.cursor()  # para usar comando sql para criar tabelas
-#
-#
-# banco = BD()
-# # banco.cursor.execute("CREATE TABLE jaca (nome text, idade integer)")   # apenas para criar
-# # banco.cursor.execute("INSERT INTO jaca VALUES('a', 3)") # para inserir
-# # banco.bancoSql.commit() #para salvar
-#
-# banco.cursor.execute("SELECT * FROM jaca")  # pegue todos
-# lista = banco.cursor.fetchall()     # [('a', 3)]
-# print(lista[0][0])
 
 
 class BD:
     def __init__(self, lista_admin, lista_users, lista_denuncia):
-        self.bancoSql = sqlite3.connect("BancoSistemaReceitas.db")
-        self.cursor = self.bancoSql.cursor()  # para usar comando sql para criar tabelas
-
         self.lista_admin = lista_admin
         self.lista_users = lista_users
         self.lista_denuncia = lista_denuncia

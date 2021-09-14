@@ -1,13 +1,17 @@
 # TODO:
 
 # Colocar as pesquisas por ordem da média de avaliação
-# Ao alterar os dados de um admin que é o usuario atual, volta ao menu, precisa arrumar isso
 
-# Testar receita sem palavra chave
-# Nao avaliar duas vezes, colocar lista de usuarios que avaliou/denunciou uma receita
+#################### 
+# Composite na classe usuario para dividir o cozinheiro do adm
 
-### projeto de arq logica tem que arrumar as classes ( que estao como defs)
+# Facede entre main > Sistema > funcoes do Sistema
+# factory para dividir as coisas (interface/interface user e adm)
 
-# DONE:
-# Alterar dados da conta usuario e adm
-# /denunciar receita
+# singleton na base de dados
+# builder para criar receita
+
+##########
+# Data vai ter mais metodos como os de mapeamento para DB
+# na Receita vai adicionar metodos para a criacao da receita
+
