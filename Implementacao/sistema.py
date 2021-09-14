@@ -1,16 +1,16 @@
 from receita import Receita
 from user import User
 from user import Admin
-#from bd import BD
-import interface
 import pesquisa
+#from bd import BD
 # import keyboard as key  # using module keyboard
 
 
 class Sistema():
-    def __init__(self):
+    def __init__(self, SisInterface):
         self.IdClass = "Sistema"
-        self.interface = interface.Interface()
+        self.interface = SisInterface
+        self.pesquisa = pesquisa.Pesquisa(self.interface)
 
     def menu_cadastro(self, data):
         user_atual = 0
@@ -99,8 +99,7 @@ class Sistema():
                     j.lista_receitas.append(food)
 
             elif comand == "B":  # Pesquisa
-                p = pesquisa.Pesquisa()
-                p.pesquisar_receita(data, user_atual)
+                self.pesquisa.pesquisar_receita(data, user_atual)
 
             elif comand == "C":  # Minhas Receitas
                 self.interface.retorno_print("-="*30)
@@ -342,8 +341,8 @@ class Sistema():
             {'-=' *30}
                     Pesquisa de Receitas
             {'-='*30}""")
-                p = pesquisa.Pesquisa()
-                lista_total = p.mostrar_todas_receitas(data.lista_users)
+                lista_total = self.pesquisa.mostrar_todas_receitas(
+                    data.lista_users)
                 for receita in lista_total:
                     self.interface.retornar_lista_receitas(
                         receita.nome, receita)
@@ -354,8 +353,8 @@ class Sistema():
                 Denuncias Recebidas: """)
 
                 # denuncias nao esta funcionando direito
-                p = pesquisa.Pesquisa()
-                p.acessar_denuncias(data.lista_denuncia, data.lista_users)
+                self.pesquisa.acessar_denuncias(data.lista_denuncia,
+                                                data.lista_users)
                 self.interface.retorno_print("-="*30)
 
             elif comand == "D":  # Sair

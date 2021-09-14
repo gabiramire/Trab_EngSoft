@@ -1,12 +1,11 @@
 #from receita import Receita
 #from user import User #
-import interface
 
 
 class Pesquisa():
-    def __init__(self):
+    def __init__(self, PesInterface):
         self.nome = "Pesquisa sistema"
-        self.interface = interface.Interface()
+        self.interface = PesInterface
 
     def pesquisar_receita(self, data, user_atual):
 

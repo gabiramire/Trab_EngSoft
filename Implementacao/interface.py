@@ -1,6 +1,3 @@
-from receita import Receita
-
-
 class Interface():
     def __init__(self):
         self.IdClass = "Interface"

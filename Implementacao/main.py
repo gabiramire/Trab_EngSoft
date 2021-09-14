@@ -1,6 +1,6 @@
 import sistema
 from bd import BD, initial_admin, initial_user
-
+import interface
 # from receita import Receita
 # from user import User
 # from user import Admin
@@ -19,7 +19,8 @@ def main():
     sair = False
 
     while user_atual != 'exit':
-        s = sistema.Sistema()
+        SisInterface = interface.Interface()
+        s = sistema.Sistema(SisInterface)
         user_atual = s.menu_cadastro(data)
         for i in data.lista_admin:
             if user_atual == i.login:
