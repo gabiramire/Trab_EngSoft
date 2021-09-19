@@ -1,11 +1,10 @@
-#from receita import Receita
-#from user import User #
-
-
 class Pesquisa():
     def __init__(self, PesInterface):
-        self.nome = "Pesquisa sistema"
+        self.IdClass = "Pesquisa sistema"
         self.interface = PesInterface
+
+    def get_avaliacao(self, receita):
+        return receita.media_avaliacao
 
     def pesquisar_receita(self, data, user_atual):
 
@@ -14,16 +13,14 @@ class Pesquisa():
             for j in i.lista_receitas:
                 lista_total.append(j)
 
-        # lista_ord = []
-        # for rec in range(len(lista_total)):
-        #     if len(lista_ord) > 0:
-        #         for ord in range(len(lista_ord)):
-        #             if lista_total[rec].media_avaliacao < lista_ord[ord].media_avaliacao:
-        #                 lista_ord.insert(ord, lista_total[rec])
-        #     else:
-        #         lista_ord.append(lista_total[rec])
-        # for jaca in lista_ord:
-        #     self.interface.retornar_receita(jaca)
+        # retornar as 5 melhores receitas
+        lista_total.sort(reverse=True, key=self.get_avaliacao)
+        if len(lista_total) > 0:
+            melhores = 0
+            for i in lista_total:
+                if melhores < 5:
+                    self.interface.retornar_receita(i)
+                    melhores += 1
 
         continuar = True
         while continuar:
