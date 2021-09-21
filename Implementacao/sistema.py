@@ -199,11 +199,10 @@ class Sistema():
                         lista = []
                         for rec in data.lista_denuncia:
                             nova = {}
-                            for c, v in rec.items():
-                                if c == old_name:
-                                    nova[novo_login] = v
-                                else:
-                                    nova[c] = v
+                            if rec.receita == old_name:
+                                nova[novo_login] = rec.user
+                            else:
+                                nova[c] = v
                             lista.append(nova)
                         data.lista_denuncia.clear()
                         data.lista_denuncia = lista.copy()
@@ -281,14 +280,12 @@ class Sistema():
                             for usuario_pesquisa in data.lista_users:
                                 if login == usuario_pesquisa.email:
                                     data.lista_users.remove(usuario_pesquisa)
-                                    self.interface.retorno_print(
-                                        f'Usuário {usuario_pesquisa.login} excluído com sucesso. ')
+                                    self.interface.retorno_print(f'Usuário {usuario_pesquisa.login} excluído com sucesso. ')
                                     email_encontrado = True
                                     continuar = False
 
                             if email_encontrado == False:
-                                self.interface.retorno_print(
-                                    "Email não encontrado.")
+                                self.interface.retorno_print("Email não encontrado.")
                                 continuar = False
 
                     elif alteracao == 'B':  # Alterar dados de uma conta
@@ -350,8 +347,7 @@ class Sistema():
                         else:
                             x = Admin(login, senha, email, pin)
                             data.lista_admin.append(x)
-                            self.interface.retorno_print(
-                                "O novo administrador está cadastrado no sistema.")
+                            self.interface.retorno_print("O novo administrador está cadastrado no sistema.")
                         self.interface.retorno_print("-="*30)
 
                     elif alteracao == 'D':
@@ -367,8 +363,7 @@ class Sistema():
                 lista_total = self.pesquisa.mostrar_todas_receitas(
                     data.lista_users)
                 for receita in lista_total:
-                    self.interface.retornar_lista_receitas(
-                        receita.nome, receita)
+                    self.interface.retornar_lista_receitas(receita.nome, receita)
 
             elif comand == "C":  # Denuncias
                 self.interface.retorno_print(f"""
@@ -376,8 +371,7 @@ class Sistema():
                 Denuncias Recebidas: """)
 
                 # denuncias nao esta funcionando direito
-                self.pesquisa.acessar_denuncias(data.lista_denuncia,
-                                                data.lista_users)
+                self.pesquisa.acessar_denuncias(data.lista_denuncia, data.lista_users)
                 self.interface.retorno_print("-="*30)
 
             elif comand == "D":  # Sair

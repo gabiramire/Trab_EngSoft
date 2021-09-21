@@ -226,8 +226,7 @@ class Interface():
 
     def menu_lista_denuncia(self, lista_denuncia):
         for i in lista_denuncia:
-            for c, v in i.items():      # chave, valor de cada item
-                print(f" Usuário: {c} receita: {v[0]} motivo: {v[1]}")
+            print(f" Usuário: {i.user} receita: {i.receita} motivo: {i.get_motivo()}")
         print('-'*40)
 
     def erro404(self):

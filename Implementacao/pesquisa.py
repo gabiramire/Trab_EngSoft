@@ -1,6 +1,6 @@
 #from receita import Receita
 #from user import User #
-
+from denuncia import Denuncia
 
 class Pesquisa():
     def __init__(self, PesInterface):
@@ -58,8 +58,7 @@ class Pesquisa():
                         encontro = ''
 
                     if not(receita_encontrada):
-                        self.interface.retorno_print(
-                            "Receita não encontrada. ")
+                        self.interface.retorno_print(" Receita não encontrada. ")
                         sair = self.interface.sem_resposta_continuar_pesquisa()
                         if sair == '1':
                             continuar = False
@@ -95,12 +94,13 @@ class Pesquisa():
     def denunciar_receita(self, receita, lista_denuncia: list):
         motivo = ''
         while len(motivo) <= 0:
-            denuncia = {}
+            # denuncia = {}
             motivo = self.interface.menu_denunciar_motivo()
 
             if motivo in ("1", "2", "3"):
-                denuncia[receita.nome_usuario] = [receita.nome, motivo]
+                denuncia = Denuncia(receita.nome_usuario, motivo, receita.nome)
                 lista_denuncia.append(denuncia)
+                
             elif motivo == "0":
                 break
             else:
@@ -154,13 +154,10 @@ class Pesquisa():
                 nome_usuario, nome_receita = self.interface.menu_nome_receita()
                 found = ''
                 for i in lista_denuncia:
-                    for c, v in i.items():
-                        if nome_usuario == c:
-                            if nome_receita == v[0]:
-                                found = 's'
-                                # metodo para retornar os dados
-                                self.verificar_receitas(
-                                    nome_usuario, nome_receita, lista_users)
+                    if i.user == nome_usuario and i.receita == nome_receita:
+                        found = 's'
+                        # metodo para retornar os dados
+                        self.verificar_receitas(nome_usuario, nome_receita, lista_users)
                 if found == '':
                     self.interface.erro404()
 

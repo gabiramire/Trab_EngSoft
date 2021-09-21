@@ -1,70 +1,15 @@
 class User:
-    def __init__(self,login,senha,email,lista_receitas):
+    def __init__(self, login, senha, email):
         self.login = login
         self.senha = senha
         self.email = email
-        self.lista_receitas = lista_receitas
-
-    @property
-    def login(self):
-         return self._login
-
-    @login.setter
-    def login(self, value):
-         self._login = value
-
-    @property
-    def senha(self):
-         return self._senha
-
-    @senha.setter
-    def senha(self, value):
-        self._senha = value
-            
-    @property
-    def email(self):
-         return self._email
-
-    @email.setter
-    def email(self, value):
-        self._email = value
-#
-#    @property
-#    def lista_receitas(self):
-#         return self._lista_receitas
-#
-#    @lista_receitas.setter
-#    def lista_receitas(self, value):
-#        self._lista_receitas = value
 
 class Admin(User):
     def __init__(self, login, senha, email, senha_admin):
-        self.login = login
-        self.senha = senha
-        self.email = email
+        super().__init__(login, senha, email)
         self.senha_admin = senha_admin
 
-    @property
-    def login(self):
-         return self._login
-
-    @login.setter
-    def login(self, value):
-         self._login = value
-
-    @property
-    def senha(self):
-         return self._senha
-
-    @senha.setter
-    def senha(self, value):
-        self._senha = value
-            
-    @property
-    def email(self):
-         return self._email
-
-    @email.setter
-    def email(self, value):
-        self._email = value
-
+class Cook(User):
+    def __init__(self, login, senha, email, lista_receitas):
+        super().__init__(login,senha,email)
+        self.lista_receitas = lista_receitas
