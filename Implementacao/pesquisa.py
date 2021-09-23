@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 #from receita import Receita
 #from user import User #
 from denuncia import Denuncia
 
-=======
->>>>>>> 39df86735ca30ea46bacd64e3f02f29211f05ef6
 class Pesquisa():
     def __init__(self, PesInterface):
         self.IdClass = "Pesquisa sistema"

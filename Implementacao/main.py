@@ -11,7 +11,6 @@ def main():
     initial_admin(data)
     initial_user(data)
     normal_user = False
-    sair = False
 
     while user_atual != 'exit':
         SisInterface = interface.Interface()

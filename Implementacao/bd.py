@@ -53,53 +53,53 @@ def create_tables(data):
         palavras_chave 
     );    
     """)
-        self.nome = None
-        self.codUser = None  # nome do criador
-        self.palavras_chave = None
-        self.doce_salgado = None
-        self.avaliacoes = []
-        self.media_avaliacao = 0
-        self.gluten = None
-        self.porcoes = None
-        self.lista_ingredientes = None      # lista de ingredientes
-        self.descricao = None
-        self.modo_preparo = None
-        self.users_avaliacoes = []
-        self.users_denuncias = []
-        self.codReceita = None
+        # self.nome = None
+        # self.codUser = None  # nome do criador
+        # self.palavras_chave = None
+        # self.doce_salgado = None
+        # self.avaliacoes = []
+        # self.media_avaliacao = 0
+        # self.gluten = None
+        # self.porcoes = None
+        # self.lista_ingredientes = None      # lista de ingredientes
+        # self.descricao = None
+        # self.modo_preparo = None
+        # self.users_avaliacoes = []
+        # self.users_denuncias = []
+        # self.codReceita = None
 
 
 
 
 
-    # TABELA DENUNCIA - TODOS OS ADMINS POSSUEM ACESSO A TODAS AS DENUNCIAS
-    cursor.execute("""(
-    CREATE TABLE IF NOT EXISTS DENUNCIA(
-        cod_denuncia INTEGER PRIMARY KEY AUTO INCREMENT,
+#     # TABELA DENUNCIA - TODOS OS ADMINS POSSUEM ACESSO A TODAS AS DENUNCIAS
+#     cursor.execute("""(
+#     CREATE TABLE IF NOT EXISTS DENUNCIA(
+#         cod_denuncia INTEGER PRIMARY KEY AUTO INCREMENT,
         
 
-    );
-    """)
+#     );
+#     """)
 
-    print('Tabelas criadas com sucesso.')
-    # desconectando...
+#     print('Tabelas criadas com sucesso.')
+#     # desconectando...
 
-    conn.close()
+#     conn.close()
 
 
-class ReceitaMap:
-    def __init__(self, connection):
-        self.connection = connection
+# class ReceitaMap:
+#     def __init__(self, connection):
+#         self.connection = connection
 
-class AdminMap:
-    def __init__(self, connection):
-        self.connection = connection
-        self.denunciaMap = DenunciaMap
+# class AdminMap:
+#     def __init__(self, connection):
+#         self.connection = connection
+#         self.denunciaMap = DenunciaMap
 
-class DenunciaMap:
-    def __init__(self, connection):
-        self.connection = connection
-        self.receitaMap = ReceitaMap(connection)
+# class DenunciaMap:
+#     def __init__(self, connection):
+#         self.connection = connection
+#         self.receitaMap = ReceitaMap(connection)
 
 
 
