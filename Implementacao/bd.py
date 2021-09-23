@@ -48,21 +48,25 @@ def create_tables(data):
     );
     """)
 
-    # CREATE TABLE CENTRO
-    # (CODIGO INTEGER,
-    # NOME VARCHAR(20) NOT NULL,
-    # PRIMARY KEY (CODIGO)
-    # )
+        ## -- PASTED HERE JUST FOR REFERENCE
 
-    # CREATE TABLE CURSO
-    # (CODIGO INTEGER,
-    # NOME VARCHAR(20) NOT NULL,
-    # CENTRO INTEGER,
-    # PRIMARY KEY (CODIGO),
-    # FOREIGN KEY (CENTRO) REFERENCES CENTRO(CODIGO)
-    # )
+            # CREATE TABLE CENTRO
+            # (CODIGO INTEGER,
+            # NOME VARCHAR(20) NOT NULL,
+            # PRIMARY KEY (CODIGO)
+            # )
+
+            # CREATE TABLE CURSO
+            # (CODIGO INTEGER,
+            # NOME VARCHAR(20) NOT NULL,
+            # CENTRO INTEGER,
+            # PRIMARY KEY (CODIGO),
+            # FOREIGN KEY (CENTRO) REFERENCES CENTRO(CODIGO)
+            # )
+
 
     # TABELA RECEITA - LINKED TO A COOK
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS RECEITA(
         cod_receita INTEGER PRIMARY KEY AUTO INCREMENT,
@@ -70,6 +74,25 @@ def create_tables(data):
         nome TEXT NOT NULL,
     );    
     """)
+
+    # Receita attributes:
+
+        # self.nome = None
+        # self.codUser = None  # nome do criador
+        # self.palavras_chave = None  ---- talvez outra tabela
+        # self.doce_salgado = None
+        # self.avaliacoes = []  ---- talvez outra tabela
+        # self.media_avaliacao = 0
+        # self.gluten = None
+        # self.porcoes = None
+        # self.lista_ingredientes = None   ---- talvez outra tabela
+        # self.descricao = None
+        # self.modo_preparo = None
+        # self.users_avaliacoes = []  ---- talvez outra tabela
+        # self.users_denuncias = []  ---- linkar denuncia com receita com usuario no sistema e no bd
+        # self.codReceita = None 
+
+    # TABELA PALAVRA-CHAVE - LINKED TO A RECEITA
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS PALAVRA-CHAVE(
@@ -80,35 +103,29 @@ def create_tables(data):
     );    
     """)
 
-        # self.nome = None
-        # self.codUser = None  # nome do criador
-        # self.palavras_chave = None
-        # self.doce_salgado = None
-        # self.avaliacoes = []
-        # self.media_avaliacao = 0
-        # self.gluten = None
-        # self.porcoes = None
-        # self.lista_ingredientes = None      # lista de ingredientes
-        # self.descricao = None
-        # self.modo_preparo = None
-        # self.users_avaliacoes = []
-        # self.users_denuncias = []
-        # self.codReceita = None
 
 
-#     # TABELA DENUNCIA - TODOS OS ADMINS POSSUEM ACESSO A TODAS AS DENUNCIAS
-#     cursor.execute("""(
-#     CREATE TABLE IF NOT EXISTS DENUNCIA(
-#         cod_denuncia INTEGER PRIMARY KEY AUTO INCREMENT,
+    # TABELA DENUNCIA - TODOS OS ADMINS POSSUEM ACESSO A TODAS AS DENUNCIAS
+
+    cursor.execute("""(
+    CREATE TABLE IF NOT EXISTS DENUNCIA(
+        cod_denuncia INTEGER PRIMARY KEY AUTO INCREMENT,
         
 
-#     );
-#     """)
+    );
+    """)
 
-#     print('Tabelas criadas com sucesso.')
-#     # desconectando...
+    # Denuncia attributes:
 
-#     conn.close()
+        # self.user = user  
+        # self.motivo = motivo
+        # self.receita = receita
+    
+        
+    print('Tabelas criadas com sucesso.')
+    # desconectando...
+
+    conn.close()
 
 
 def initial_admin(data):
