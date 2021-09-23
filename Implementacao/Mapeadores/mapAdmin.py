@@ -74,7 +74,7 @@ class mapAdmin:
             lista_denuncias = registro[4]
             admin = Admin(codUser,senha,email,senha_admin)
             if lista_denuncias != None:
-                admin.curso = self.mapReceita.get(lista_denuncias)
+                admin.curso = self.mapDenuncia.get(lista_denuncias)
             return admin
         else:
             return None

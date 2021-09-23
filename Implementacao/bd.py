@@ -3,6 +3,20 @@ from user import Admin
 from user import Cook
 from receita import Receita
 
+
+## TODO:
+    # DENUNCIA TABLE
+    # RECEITA TABLE
+    # CONFERIR MAPADMIN E MAPUSER
+    # FAZER MAPDENUNCIA
+    # FAZER MAPRECEITA
+    # AJUSTAR O RESTO DO PROGRAMA PARA AS NOVAS CLASSES CRIADAS PARA O BD
+    # TESTAR O BD
+    # ESTUDAR MAIS SOBRE HERANÇA E COMPOSIÇÃO EM SQL
+    ## -> AS PALAVRAS CHAVE PRECISAM SER OUTRA CLASSE (?)
+    ### PALAVRA CHAVE TABLE
+    ### PALAVRA CHAVE MAP
+
 import sqlite3
 
 
@@ -11,7 +25,6 @@ class BD:
         self.lista_admin = lista_admin
         self.lista_cook = lista_cook
         self.lista_denuncia = lista_denuncia
-
 
 
 def create_tables(data):
@@ -35,17 +48,30 @@ def create_tables(data):
     );
     """)
 
+    # CREATE TABLE CENTRO
+    # (CODIGO INTEGER,
+    # NOME VARCHAR(20) NOT NULL,
+    # PRIMARY KEY (CODIGO)
+    # )
+
+    # CREATE TABLE CURSO
+    # (CODIGO INTEGER,
+    # NOME VARCHAR(20) NOT NULL,
+    # CENTRO INTEGER,
+    # PRIMARY KEY (CODIGO),
+    # FOREIGN KEY (CENTRO) REFERENCES CENTRO(CODIGO)
+    # )
+
     # TABELA RECEITA - LINKED TO A COOK
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS RECEITA(
         cod_receita INTEGER PRIMARY KEY AUTO INCREMENT,
         FOREIGN KEY (USER) REFERENCES USER(cod_user)
         nome TEXT NOT NULL,
-        FOREIGN KEY (palavras_chave ) REFERENCES PALAVRA-CHAVE(cod)
     );    
     """)
 
-      cursor.execute("""
+    cursor.execute("""
     CREATE TABLE IF NOT EXISTS PALAVRA-CHAVE(
         cod_receita INTEGER PRIMARY KEY AUTO INCREMENT,
         FOREIGN KEY (USER) REFERENCES USER(cod_user)
@@ -53,6 +79,7 @@ def create_tables(data):
         palavras_chave 
     );    
     """)
+
         # self.nome = None
         # self.codUser = None  # nome do criador
         # self.palavras_chave = None
@@ -69,9 +96,6 @@ def create_tables(data):
         # self.codReceita = None
 
 
-
-
-
 #     # TABELA DENUNCIA - TODOS OS ADMINS POSSUEM ACESSO A TODAS AS DENUNCIAS
 #     cursor.execute("""(
 #     CREATE TABLE IF NOT EXISTS DENUNCIA(
@@ -85,22 +109,6 @@ def create_tables(data):
 #     # desconectando...
 
 #     conn.close()
-
-
-# class ReceitaMap:
-#     def __init__(self, connection):
-#         self.connection = connection
-
-# class AdminMap:
-#     def __init__(self, connection):
-#         self.connection = connection
-#         self.denunciaMap = DenunciaMap
-
-# class DenunciaMap:
-#     def __init__(self, connection):
-#         self.connection = connection
-#         self.receitaMap = ReceitaMap(connection)
-
 
 
 def initial_admin(data):
