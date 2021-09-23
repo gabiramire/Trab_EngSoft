@@ -2,9 +2,6 @@ class Interface():
     def __init__(self):
         self.IdClass = "Interface"
 
-    def retorno_print(self, palavra):
-        print(palavra)
-
     # parametros para criar receita #####
     # comeco das funcoes para input de parametros
 
@@ -422,6 +419,9 @@ class Interface():
     def email_usuario(self):
         login = input(" Email do usuário: ")
         return login
+
+    def retorno_print(self, palavra):
+        print(palavra)
 
     def menu_alterar_receita(self):
         #nome, user_atual, palavras_chave, doce_salgado,

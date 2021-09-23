@@ -1,17 +1,7 @@
 # TODO:
 
-# Colocar as pesquisas por ordem da média de avaliação
-
 #################### 
-# Composite na classe usuario para dividir o cozinheiro do adm
-
-# Facede entre main > Sistema > funcoes do Sistema
-# factory para dividir as coisas (interface/interface user e adm)
 
 # singleton na base de dados
 # builder para criar receita
-
-##########
-# Data vai ter mais metodos como os de mapeamento para DB
-# na Receita vai adicionar metodos para a criacao da receita
 

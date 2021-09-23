@@ -1,11 +1,6 @@
 import sistema
 from bd import BD, initial_admin, initial_user
 import interface
-# from receita import Receita
-# from user import User
-# from user import Admin
-# from interface import nomequant -> lista_ingredientes
-
 
 def main():
     lista_admin = []

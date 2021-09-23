@@ -1,7 +1,7 @@
 class Receita:
     def __init__(self):
         self.nome = None
-        self.nome_usuario = None  # nome do criador
+        self.codUser = None  # nome do criador
         self.palavras_chave = None
         self.doce_salgado = None
         self.avaliacoes = []
@@ -13,7 +13,8 @@ class Receita:
         self.modo_preparo = None
         self.users_avaliacoes = []
         self.users_denuncias = []
-
+        self.codReceita = None
+        
     def setNome(self, nome):
         self.nome = nome
 

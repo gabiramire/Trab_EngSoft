@@ -3,7 +3,6 @@ from user import User
 from user import Admin
 import pesquisa
 #from bd import BD
-# import keyboard as key  # using module keyboard
 
 
 class Sistema():
