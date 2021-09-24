@@ -6,10 +6,9 @@ class User:
         self.codUser = codUser
 
 class Admin(User):
-    def __init__(self, login, senha, email, senha_admin, lista_denuncias, codUser):
+    def __init__(self, login, senha, email, senha_admin, codUser):
         super().__init__(login, senha, email, codUser)
         self.senha_admin = senha_admin
-        self.lista_denuncias = lista_denuncias
 
 class Cook(User):
     def __init__(self, login, senha, email, lista_receitas, codUser):
